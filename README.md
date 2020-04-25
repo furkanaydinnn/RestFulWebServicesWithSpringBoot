@@ -13,3 +13,6 @@ User -> Posts
 - Create a post for a user        - POST /users/{id}/posts
 - Retrieve details of a post      - GET /users/{id}/posts/{post_id}
 
+
+* Customize Exception Handling By extending ResponseEntityExceptionHandler abdtract class.
+
