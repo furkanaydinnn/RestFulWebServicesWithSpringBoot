@@ -17,4 +17,5 @@ User -> Posts
 
 
 * Customize Exception Handling By extending ResponseEntityExceptionHandler abstract class.
+* Implementing HATEOAS for RestFul Services
 
