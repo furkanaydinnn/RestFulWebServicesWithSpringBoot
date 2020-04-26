@@ -34,6 +34,10 @@ public class UserResource {
 		if (user == null) {
 			throw new UserNotFoundException("id : " + id);
 		}
+		
+		//"all-users", SERVER_PATH + "/users"
+		//retrieveAllUsers
+		// here is for hateoas later..
 		return user;
 	}
 
