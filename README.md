@@ -20,4 +20,4 @@ User -> Posts
 * Implementing HATEOAS for RestFul Services
 * Implementing basic internatinalization concepts to static messages in our web app for RestFul Services
 * Implementing content negotiation concept for rest services
-* Rest Api Documantation by using Swagger documantation
+* Rest Api Documantation by using Swagger documantation. => http://localhost:8080/v2/api-docs , http://localhost:8080/swagger-ui.html
