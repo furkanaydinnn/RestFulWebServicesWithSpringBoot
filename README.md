@@ -16,5 +16,5 @@ User -> Posts
 ***********************************************************************************************************
 
 
-* Customize Exception Handling By extending ResponseEntityExceptionHandler abdtract class.
+* Customize Exception Handling By extending ResponseEntityExceptionHandler abstract class.
 
