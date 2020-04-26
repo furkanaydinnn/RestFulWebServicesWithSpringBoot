@@ -19,4 +19,5 @@ User -> Posts
 * Customize Exception Handling By extending ResponseEntityExceptionHandler abstract class.
 * Implementing HATEOAS for RestFul Services
 * Implementing basic internatinalization concepts to static messages in our web app for RestFul Services
+* Implementing content negotiation concept for rest services
 
