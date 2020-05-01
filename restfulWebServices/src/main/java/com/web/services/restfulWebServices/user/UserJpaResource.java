@@ -18,14 +18,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.web.services.restfulWebServices.post.Post;
+import com.web.services.restfulWebServices.post.PostRepository;
+
 @RestController
 public class UserJpaResource {
 
 	@Autowired
-	private UserDaoService service;
-	
-	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private PostRepository postRepository;
 
 	@GetMapping(path = "jpa/users")
 	public List<User> retrieveAllUsers() {
@@ -38,9 +41,9 @@ public class UserJpaResource {
 		if (!user.isPresent()) {
 			throw new UserNotFoundException("id : " + id);
 		}
-		
-		//"all-users", SERVER_PATH + "/users"
-		//retrieveAllUsers
+
+		// "all-users", SERVER_PATH + "/users"
+		// retrieveAllUsers
 		// here is for hateoas later..
 		return user.get();
 	}
@@ -60,7 +63,31 @@ public class UserJpaResource {
 
 	@DeleteMapping(path = "jpa/users/{id}")
 	public void deleteUserById(@PathVariable int id) {
-		 userRepository.deleteById(id);
+		userRepository.deleteById(id);
+	}
+
+	@GetMapping("jpa/users/{id}/posts")
+	public List<Post> getPosts(@PathVariable Integer id) {
+		Optional<User> user = userRepository.findById(id);
+		if (!user.isPresent()) {
+			throw new UserNotFoundException("id : " + id);
+		}
+		return user.get().getPosts();
+	}
+
+	@PostMapping("jpa/users/{id}/posts")
+	public ResponseEntity<Object> createPost(@PathVariable Integer id, @RequestBody Post post) {
+		Optional<User> user = userRepository.findById(id);
+		if (!user.isPresent()) {
+			throw new UserNotFoundException("id : " + id);
+		}
+
+		post.setUser(user.get());
+		postRepository.save(post);
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(post.getId())
+				.toUri();
+		return ResponseEntity.created(location).build();
 	}
 
 }

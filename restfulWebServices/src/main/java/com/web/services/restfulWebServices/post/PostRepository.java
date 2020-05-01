@@ -1,9 +1,9 @@
-package com.web.services.restfulWebServices.user;
+package com.web.services.restfulWebServices.post;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer> {
+public interface PostRepository extends JpaRepository<Post,Integer>{
 
 }
