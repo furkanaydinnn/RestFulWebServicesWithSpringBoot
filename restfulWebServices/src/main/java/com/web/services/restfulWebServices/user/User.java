@@ -2,6 +2,9 @@ package com.web.services.restfulWebServices.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -13,9 +16,12 @@ import io.swagger.annotations.ApiModelProperty;
 
 @JsonIgnoreProperties(value = {"id"})
 @ApiModel(value="User Details", description="Contains all details of a user")
+@Entity
 public class User {
 
 	//@JsonIgnore
+	@Id
+	@GeneratedValue
 	private Integer id;
 	@Size(min=2, message="Name should be at least 2 characters")
 	@ApiModelProperty(notes = "Name should have atleast 2 characters")
