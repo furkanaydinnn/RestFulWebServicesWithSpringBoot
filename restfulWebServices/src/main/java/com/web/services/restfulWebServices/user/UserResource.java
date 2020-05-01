@@ -40,7 +40,6 @@ public class UserResource {
 		// here is for hateoas later..
 		return user;
 	}
-
 	/*
 	 * @GetMapping("/users") public User
 	 * retrieveUserByRequestParam(@RequestParam("id") int id) { return
