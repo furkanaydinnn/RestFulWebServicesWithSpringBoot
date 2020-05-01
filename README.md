@@ -23,3 +23,4 @@ User -> Posts
 * Rest Api Documantation by using Swagger documantation. => http://localhost:8080/v2/api-docs , http://localhost:8080/swagger-ui.html
 * Monitoring APIs with Spring Boot Actuator => http://localhost:8080/actuator
 * Versioning Rest APIs with Header and Content Negotiation Approaches
+* Implementing Basic Authentication With Spring Security
