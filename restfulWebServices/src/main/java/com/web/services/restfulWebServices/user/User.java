@@ -1,20 +1,23 @@
 package com.web.services.restfulWebServices.user;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.web.services.restfulWebServices.post.Post;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@JsonIgnoreProperties(value = {"id"})
+//@JsonIgnoreProperties(value = {"id"})
 @ApiModel(value="User Details", description="Contains all details of a user")
 @Entity
 public class User {
@@ -30,6 +33,14 @@ public class User {
 	@Past
 	@ApiModelProperty(notes = "Birth Date should be in the Past")
 	private Date birthDate;
+	
+	@OneToMany(mappedBy="user")
+	private List<Post> posts;
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public User(Integer id, String name, Date birthDate) {
 		super();
