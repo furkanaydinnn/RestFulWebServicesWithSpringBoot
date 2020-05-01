@@ -24,3 +24,4 @@ User -> Posts
 * Monitoring APIs with Spring Boot Actuator => http://localhost:8080/actuator
 * Versioning Rest APIs with Header and Content Negotiation Approaches
 * Implementing Basic Authentication With Spring Security
+* Implementing JPA to Rest APIs
